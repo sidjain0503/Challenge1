@@ -4,10 +4,13 @@ const productRouter = express.Router();
 
 
 
-const { productUpload, productShow , productDelete , productUpdate  } = require('../Controllers/ProductController');
+const { productUpload, productShow , productDelete , productUpdate  , singleproductShow} = require('../Controllers/ProductController');
 
 
-productRouter.post('/newproduct', productUpload); //productUpload 
+
+
+
+productRouter.post('/newproduct',productUpload); //productUpload 
 
 productRouter.delete('/delete/:id', productDelete); //productDelete 
 
@@ -15,5 +18,8 @@ productRouter.post('/update/:id', productUpdate); //productUpdate
 
 
 productRouter.get('/new', productShow);//ProductShow
+
+productRouter.get('/update/:id', singleproductShow)
+
 
 module.exports = productRouter

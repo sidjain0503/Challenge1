@@ -1,7 +1,8 @@
 // This is the main file on which our backend app is hosted! 
 
 const express = require("express");
-const port = 8080;
+require('dotenv').config();
+const port = process.env.PORT 
 const app = express();
 const bodyParser = require("body-parser")
 const cors = require('cors')

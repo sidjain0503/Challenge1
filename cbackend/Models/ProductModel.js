@@ -20,6 +20,12 @@ const product = mongoose.Schema({
   },
   description: {
     type: String,
+  },
+  sponsers: {
+    type: String,
+  },
+  discount: {
+    type: Number,
   }
 });
 

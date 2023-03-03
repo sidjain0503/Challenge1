@@ -1,6 +1,8 @@
 // This file has functions like upload and show . to upload products and show them from the database
 
 const Product = require('../Models/ProductModel')
+var fs = require('fs');
+var path = require('path');
 
 // Product upload 
 module.exports.productUpload =async (req,res)=>{
@@ -15,6 +17,9 @@ module.exports.productUpload =async (req,res)=>{
       price:req.body.price,
       stock:req.body.stock,
       description:req.body.description,
+      discount:req.body.discount,
+      sponsers:req.body.sponsers,
+     
     });
 
     await  product.save().then(()=>{
@@ -36,7 +41,22 @@ module.exports.productShow =(req,res)=>{
   });
  
 }
+ 
 
+//Single show
+
+module.exports.singleproductShow =async(req,res)=>{
+  const id = await req.params.id;
+  // console.log("id is ", id)
+  // res.send(id)
+
+  Product.findById(id).then((data)=>{
+    res.send(data)
+  }).catch((err)=>{
+    res.send(err)
+  });
+ 
+}
 
 // Product Update 
 exports.productUpdate = async (req, res) => {
