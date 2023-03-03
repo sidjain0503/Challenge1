@@ -26,6 +26,10 @@ app.get("/",(req,res)=>{
     res.send( `programm running on port ${port}`)
 })
 
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static("cfrontend/build"))
+}
+
 app.listen(port, () => {
   console.log("Express Server is listening on Port: " + port);
 }); 

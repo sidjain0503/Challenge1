@@ -3,7 +3,7 @@
 
 const connection = () => {
     const mongoose = require("mongoose");
-    const Url = "mongodb://localhost:27017/Challenge";
+    const Url = process.env.MONGO_DB;
     mongoose
       .connect(Url,{
         useNewUrlParser: true
